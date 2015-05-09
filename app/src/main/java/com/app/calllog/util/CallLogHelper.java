@@ -1,11 +1,12 @@
-package com.app.util;
+package com.app.calllog.util;
 
 import android.content.ContentResolver;
 import android.database.Cursor;
 import android.provider.CallLog;
 
-import com.app.objects.CallerInfo;
+import com.app.calllog.objects.CallerInfo;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import static android.provider.CallLog.Calls.INCOMING_TYPE;
@@ -107,4 +108,20 @@ public class CallLogHelper {
         return callTypestr;
     }
 
+    //this method is used for Convert Millies into Hours and minutes
+    public static String getDuration(long milliseconds) {
+        int seconds = (int) (milliseconds / 1000) % 60;
+        int minutes = (int) ((milliseconds / (1000 * 60)) % 60);
+        int hours = (int) ((milliseconds / (1000 * 60 * 60)) % 24);
+        if (hours < 1)
+            return minutes + ":" + seconds;
+        return hours + ":" + minutes + ":" + seconds;
+    }
+
+
+    public static String getDateTime(long milliseconds) {
+        Date date = new Date(milliseconds);
+        //return DateFormat.getDateTimeInstance().format(new Date());
+        return date.toLocaleString();
+    }
 }

@@ -1,4 +1,4 @@
-package com.app.util;
+package com.app.calllog.util;
 
 /**
  * Created by Akash on 09-May-15.

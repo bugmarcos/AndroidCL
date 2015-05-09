@@ -1,4 +1,4 @@
-package com.app.objects;
+package com.app.calllog.objects;
 
 /**
  * Created by Akash on 09-May-15.
