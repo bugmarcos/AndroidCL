@@ -2,16 +2,29 @@ package com.app.calllog;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.app.objects.CallerInfo;
+import com.app.util.CallLogHelper;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+     
+        CallLogHelper callLogHelper = new CallLogHelper();
+        ArrayList<CallerInfo> logs = callLogHelper.readCallLogs(getApplicationContext().getContentResolver());
+        if (logs.size() > 0) {
+            Log.d(TAG, logs.get(0).toString());
+        }
     }
 
 
