@@ -19,7 +19,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-     
+
         CallLogHelper callLogHelper = new CallLogHelper();
         ArrayList<CallerInfo> logs = callLogHelper.readCallLogs(getApplicationContext().getContentResolver());
         if (logs.size() > 0) {
