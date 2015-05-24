@@ -6,13 +6,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.app.calllog.R;
+import com.app.calllog.database.DBHelper;
+import com.app.calllog.model.Contact;
 
 
 public class MainActivity extends Activity {
 
+    Contact contact,contact2,contact3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        contact = new Contact(1,"Akash Soni","1234567890","akki9326@gmail.com");
+
+        DBHelper.getInstance(getApplicationContext()).insert(DBHelper.TABLE_CONTACT,contact);
+        contact2 = new Contact(2,"Akash Soni2","1234567890","akki9326@gmail2.com");
+        DBHelper.getInstance(getApplicationContext()).insert(contact2);
+        contact3 = new Contact(2,"Akash Soni","1234567890","akki9326@gmail2.com");
+        DBHelper.getInstance(getApplicationContext()).insertOrUpdate(getApplicationContext(),contact3);
+
         setContentView(R.layout.activity_main);
         if(savedInstanceState==null)
         {
