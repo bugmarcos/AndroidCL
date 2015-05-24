@@ -119,7 +119,7 @@ public class CallLogHelper {
     }
 
 
-    //call this method to get Date In String from millies 
+    //call this method to get Date In String from millies
     public static String getDateTime(long milliseconds) {
         Date date = new Date(milliseconds);
         //return DateFormat.getDateTimeInstance().format(new Date());
