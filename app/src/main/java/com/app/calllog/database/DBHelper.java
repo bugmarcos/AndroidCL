@@ -27,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     protected static final String KEY_ID = "id";
     /* table names */
-    public static final String TABLE_CONTACT = "contacts";
+    public static final String TABLE_CONTACT = "contact";
 
 
     /* field Name for Contact Table */
