@@ -8,6 +8,7 @@ import com.app.calllog.objects.CallerInfo;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.provider.CallLog.Calls.INCOMING_TYPE;
 import static android.provider.CallLog.Calls.MISSED_TYPE;
@@ -32,9 +33,9 @@ public class CallLogHelper {
     public static final int kVOICEMAIL_TYPE = VOICEMAIL_TYPE;
 
 
-    public ArrayList<CallerInfo> readCallLogs(ContentResolver resolver) {
+    public static List<CallerInfo> readCallLogs(ContentResolver resolver) {
 
-        ArrayList<CallerInfo> callerInfoArrayList = new ArrayList<>();
+        List<CallerInfo> callerInfoArrayList = new ArrayList<>();
         Cursor cursor = resolver.query(android.provider.CallLog.Calls.CONTENT_URI, null,
                 null, null, android.provider.CallLog.Calls.DEFAULT_SORT_ORDER);
 
