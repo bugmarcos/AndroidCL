@@ -6,16 +6,36 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.app.calllog.R;
+import com.app.calllog.database.DBHelper;
+import com.app.calllog.model.Contact;
 
 
 public class MainActivity extends Activity {
 
+    Contact contact, contact2, contact3, contact4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        contact = new Contact(1, "Akash Soni", "1234567890", "akki9326@gmail.com");
+
+        DBHelper.getInstance(getApplicationContext())
+                .insert(DBHelper.TABLE_CONTACT, contact);
+
+        contact2 = new Contact(2, "Akash Soni2", "1234567890", "akki9326@gmail2.com");
+        contact3 = new Contact(3, "Akash Soni3", "1234567890", "akki9326@gmail2.com");
+        contact4 = new Contact(3, "Akash Soni--", "1234567890", "akki9326@gmail2.com");
+        DBHelper.getInstance(getApplicationContext())
+                .insert(contact2);
+        DBHelper.getInstance(getApplicationContext())
+                .insert(contact3);
+        DBHelper.getInstance(getApplicationContext())
+                .insertOrUpdate(getApplicationContext(),contact4);
+
+
         setContentView(R.layout.activity_main);
-        if(savedInstanceState==null)
-        {
+        if (savedInstanceState == null) {
 //            android.app.Fragment contactsFragment = new ContactsListFrag();
 //            getFragmentManager().beginTransaction().add(R.id.container,contactsFragment).commit();
         }
